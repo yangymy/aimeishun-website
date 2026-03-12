@@ -48,7 +48,7 @@ export function TestimonialsSection() {
     <section className="py-16 md:py-24 bg-[#FAF8F6]">
       <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="inline-block text-sm font-medium text-[#7A9E8C] uppercase tracking-wider mb-4">
+          <span className="inline-block text-sm font-medium text-[#F37021] uppercase tracking-wider mb-4">
             真实蜕变
           </span>
 
@@ -60,7 +60,7 @@ export function TestimonialsSection() {
         <div className="max-w-4xl mx-auto">
           <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12 relative">
             <div className="absolute top-6 left-6 md:top-8 md:left-8">
-              <Quote className="w-10 h-10 md:w-12 md:h-12 text-[#7A9E8C]/20" />
+              <Quote className="w-10 h-10 md:w-12 md:h-12 text-[#F37021]/20" />
             </div>
 
             <div className="relative z-10 pt-8">
@@ -100,7 +100,7 @@ export function TestimonialsSection() {
                           key={index}
                           onClick={() => setActiveIndex(index)}
                           className={`w-2 h-2 rounded-full transition-colors ${
-                            index === activeIndex ? "bg-[#7A9E8C]" : "bg-[#E8E2DB]"
+                            index === activeIndex ? "bg-[#F37021]" : "bg-[#E8E2DB]"
                           }`}
                           aria-label={`查看第${index + 1}条评价`}
                         />
@@ -124,7 +124,7 @@ export function TestimonialsSection() {
           <Button
             asChild
             variant="outline"
-            className="border-[#7A9E8C] text-[#7A9E8C] hover:bg-[#7A9E8C]/10"
+            className="border-[#F37021] text-[#F37021] hover:bg-[#F37021]/10"
           >
             <Link href="/cases">查看全部案例</Link>
           </Button>

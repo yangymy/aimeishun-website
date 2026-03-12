@@ -21,7 +21,7 @@ export default function AgentPage() {
     <main className="min-h-screen bg-[#FAF8F6]">
       <section className="relative bg-[#4A4A48] py-20 md:py-28">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#7A9E8C]/30 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#F37021]/30 to-transparent" />
         </div>
         <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center max-w-3xl mx-auto">

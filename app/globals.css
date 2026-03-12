@@ -2,9 +2,9 @@
 
 :root {
   /* Brand Colors - Aimeishun Design System */
-  --jade: #7A9E8C;
-  --jade-dark: #5F7D6E;
-  --jade-light: #9EBBAE;
+  --orange: #F37021;
+  --orange-dark: #D65A0F;
+  --orange-light: #FF8C42;
   
   --ivory: #F5F1ED;
   --ivory-dark: #E8E2DB;
@@ -28,7 +28,7 @@
   --popover: 0 0% 100%;
   --popover-foreground: 20 14.3% 4.1%;
   
-  --primary: 144 16% 55%;
+  --primary: 22 89% 54%;
   --primary-foreground: 0 0% 100%;
   
   --secondary: 30 20% 95%;
@@ -45,7 +45,7 @@
   
   --border: 20 6% 85%;
   --input: 20 6% 85%;
-  --ring: 144 16% 55%;
+  --ring: 22 89% 54%;
   
   --radius: 0.5rem;
 }
@@ -58,9 +58,9 @@
   --font-mono: var(--font-geist-mono);
   
   /* Custom brand colors */
-  --color-jade: var(--jade);
-  --color-jade-dark: var(--jade-dark);
-  --color-jade-light: var(--jade-light);
+  --color-orange: var(--orange);
+  --color-orange-dark: var(--orange-dark);
+  --color-orange-light: var(--orange-light);
   
   --color-ivory: var(--ivory);
   --color-ivory-dark: var(--ivory-dark);
@@ -127,6 +127,6 @@ html {
 
 /* Selection color */
 ::selection {
-  background-color: var(--jade-light);
+  background-color: var(--orange-light);
   color: var(--dark);
 }

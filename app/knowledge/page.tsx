@@ -43,7 +43,7 @@ const skinCareGuides = [
       "30+肌肤屏障逐渐脆弱，选择氨基酸类温和洁面产品，避免皂基过度清洁。早晚各一次，水温保持在32-35°C，洁面时间不超过60秒。",
     tips: ["选择pH值5.5-6.5的洁面产品", "避免过度摩擦肌肤", "卸妆要彻底但温和"],
     icon: Sparkles,
-    color: "bg-[#7A9E8C]/10 text-[#7A9E8C]",
+    color: "bg-[#F37021]/10 text-[#F37021]",
   },
   {
     id: 2,
@@ -63,7 +63,7 @@ const skinCareGuides = [
       "紫外线是肌肤衰老的最大元凶！30+女性必须全年防晒，SPF30+、PA+++是基本配置。室内靠窗位置也需要防护。",
     tips: ["无论阴晴都要防晒", "每2-3小时补涂一次", "配合遮阳帽效果更佳"],
     icon: Sun,
-    color: "bg-[#7A9E8C]/10 text-[#7A9E8C]",
+    color: "bg-[#F37021]/10 text-[#F37021]",
   },
   {
     id: 4,
@@ -83,7 +83,7 @@ const skinCareGuides = [
       "再好的护肤品也救不了熬夜的肌肤！晚上11点至凌晨2点是肌肤修复黄金期，保证7-8小时睡眠，配合健康饮食和适量运动。",
     tips: ["晚上11点前入睡", "多喝水，每天至少2000ml", "保持愉悦心情"],
     icon: Moon,
-    color: "bg-[#7A9E8C]/10 text-[#7A9E8C]",
+    color: "bg-[#F37021]/10 text-[#F37021]",
   },
 ];
 
@@ -134,7 +134,7 @@ const skinProblems = [
     id: 4,
     type: "衰老肌",
     badge: "抗衰紧致",
-    badgeColor: "bg-[#7A9E8C]/20 text-[#5F7D6E] border-[#7A9E8C]/30",
+    badgeColor: "bg-[#F37021]/20 text-[#D65A0F] border-[#F37021]/30",
     symptoms: ["细纹皱纹", "肌肤松弛", "法令纹", "颈纹"],
     causes: "胶原蛋白流失、弹性纤维断裂、光老化、地心引力",
     solutions: [
@@ -225,7 +225,7 @@ export default function KnowledgePage() {
             <p className="text-lg md:text-xl text-[#6A6A68] leading-relaxed">
               专为30+女性打造的科学护肤指南
               <br />
-              <span className="text-[#7A9E8C]">专业、实用、易懂</span>，让美丽有迹可循
+              <span className="text-[#F37021]">专业、实用、易懂</span>，让美丽有迹可循
             </p>
           </div>
         </div>
@@ -257,7 +257,7 @@ export default function KnowledgePage() {
                   <CardTitle className="font-serif text-xl text-[#4A4A48]">
                     {guide.title}
                   </CardTitle>
-                  <CardDescription className="text-[#7A9E8C] font-medium">
+                  <CardDescription className="text-[#F37021] font-medium">
                     {guide.subtitle}
                   </CardDescription>
                 </CardHeader>
@@ -271,7 +271,7 @@ export default function KnowledgePage() {
                         key={index}
                         className="flex items-start gap-2 text-sm text-[#6A6A68]"
                       >
-                        <CheckCircle2 className="w-4 h-4 text-[#7A9E8C] mt-0.5 shrink-0" />
+                        <CheckCircle2 className="w-4 h-4 text-[#F37021] mt-0.5 shrink-0" />
                         <span>{tip}</span>
                       </li>
                     ))}
@@ -296,7 +296,7 @@ export default function KnowledgePage() {
                   <CardTitle className="font-serif text-xl text-[#4A4A48]">
                     {guide.title}
                   </CardTitle>
-                  <CardDescription className="text-[#7A9E8C] font-medium">
+                  <CardDescription className="text-[#F37021] font-medium">
                     {guide.subtitle}
                   </CardDescription>
                 </CardHeader>
@@ -310,7 +310,7 @@ export default function KnowledgePage() {
                         key={index}
                         className="flex items-start gap-2 text-sm text-[#6A6A68]"
                       >
-                        <CheckCircle2 className="w-4 h-4 text-[#7A9E8C] mt-0.5 shrink-0" />
+                        <CheckCircle2 className="w-4 h-4 text-[#F37021] mt-0.5 shrink-0" />
                         <span>{tip}</span>
                       </li>
                     ))}
@@ -375,7 +375,7 @@ export default function KnowledgePage() {
                   </div>
                   <div>
                     <h4 className="text-sm font-medium text-[#4A4A48] mb-2 flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-[#7A9E8C]" />
+                      <CheckCircle2 className="w-4 h-4 text-[#F37021]" />
                       解决方案
                     </h4>
                     <ul className="space-y-1.5">
@@ -384,7 +384,7 @@ export default function KnowledgePage() {
                           key={index}
                           className="text-sm text-[#6A6A68] flex items-start gap-2"
                         >
-                          <span className="text-[#7A9E8C] mt-1.5 w-1 h-1 rounded-full bg-current shrink-0" />
+                          <span className="text-[#F37021] mt-1.5 w-1 h-1 rounded-full bg-current shrink-0" />
                           <span>{solution}</span>
                         </li>
                       ))}
@@ -430,7 +430,7 @@ export default function KnowledgePage() {
                       {myth.truth}
                     </p>
                     <p className="text-sm text-[#6A6A68]">
-                      <span className="text-[#7A9E8C] font-medium">正确做法：</span>
+                      <span className="text-[#F37021] font-medium">正确做法：</span>
                       {myth.correct}
                     </p>
                   </div>
@@ -456,10 +456,10 @@ export default function KnowledgePage() {
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
-                  <tr className="bg-[#7A9E8C]/10 border-b border-[#E8E2DB]">
+                  <tr className="bg-[#F37021]/10 border-b border-[#E8E2DB]">
                     <th className="text-left py-4 px-6 font-serif text-[#4A4A48] font-semibold">
                       <div className="flex items-center gap-2">
-                        <Calendar className="w-4 h-4 text-[#7A9E8C]" />
+                        <Calendar className="w-4 h-4 text-[#F37021]" />
                         季节
                       </div>
                     </th>
@@ -515,7 +515,7 @@ export default function KnowledgePage() {
                               key={i}
                               className="text-sm text-[#6A6A68] flex items-center gap-2"
                             >
-                              <span className="w-1 h-1 rounded-full bg-[#7A9E8C]" />
+                              <span className="w-1 h-1 rounded-full bg-[#F37021]" />
                               {point}
                             </li>
                           ))}
@@ -537,7 +537,7 @@ export default function KnowledgePage() {
 
       <section className="py-16 md:py-24">
         <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-br from-[#7A9E8C] to-[#5F7D6E] rounded-3xl p-8 md:p-12 lg:p-16 text-center">
+          <div className="bg-gradient-to-br from-[#F37021] to-[#D65A0F] rounded-3xl p-8 md:p-12 lg:p-16 text-center">
             <div className="max-w-2xl mx-auto">
               <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <MessageCircle className="w-8 h-8 text-white" />
@@ -554,7 +554,7 @@ export default function KnowledgePage() {
                 <Button
                   asChild
                   size="lg"
-                  className="bg-white text-[#7A9E8C] hover:bg-white/90 font-medium px-8"
+                  className="bg-white text-[#F37021] hover:bg-white/90 font-medium px-8"
                 >
                   <Link href="/contact">
                     免费咨询

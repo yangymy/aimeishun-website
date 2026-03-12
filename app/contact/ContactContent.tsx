@@ -24,6 +24,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { WeChatModal } from "@/components/WeChatModal";
 
 const contactMethods = [
   {
@@ -37,7 +38,7 @@ const contactMethods = [
   {
     icon: Phone,
     title: "拨打咨询电话",
-    phone: "待填写",
+    phone: "13538941293",
     description: "紧急问题电话咨询、产品售后问题、代理合作洽谈",
     note: "工作日 9:00-18:00\n如遇忙线，请稍后再拨或优先选择微信咨询",
     primary: false,
@@ -46,7 +47,7 @@ const contactMethods = [
   {
     icon: Mail,
     title: "发送邮件",
-    email: "待填写",
+    email: "873974555@qq.com",
     description: "商务合作洽谈、品牌合作邀约、批量采购咨询、意见建议反馈",
     note: "1-3个工作日内回复",
     primary: false,
@@ -119,6 +120,26 @@ export function ContactContent() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isWeChatModalOpen, setIsWeChatModalOpen] = useState(false);
+
+  const handleWeChatClick = async () => {
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    
+    if (isMobile) {
+      const wechatId = "AMSwmy666";
+      try {
+        await navigator.clipboard.writeText(wechatId);
+        alert("微信ID已复制: " + wechatId + "\n正在打开微信...");
+        setTimeout(() => {
+          window.location.href = "weixin://";
+        }, 1500);
+      } catch (err) {
+        alert("请手动复制微信ID: " + wechatId);
+      }
+    } else {
+      setIsWeChatModalOpen(true);
+    }
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -139,7 +160,7 @@ export function ContactContent() {
                 key={index}
                 className={`border-[var(--ivory-dark)] h-full ${
                   method.primary
-                    ? "bg-[var(--jade)] text-white"
+                    ? "bg-[var(--orange)] text-white"
                     : "bg-white"
                 }`}
               >
@@ -148,12 +169,12 @@ export function ContactContent() {
                     className={`w-14 h-14 rounded-full flex items-center justify-center mb-6 ${
                       method.primary
                         ? "bg-white/20"
-                        : "bg-[var(--jade)]/10"
+                        : "bg-[var(--orange)]/10"
                     }`}
                   >
                     <method.icon
                       className={`w-7 h-7 ${
-                        method.primary ? "text-white" : "text-[var(--jade)]"
+                        method.primary ? "text-white" : "text-[var(--orange)]"
                       }`}
                     />
                   </div>
@@ -169,7 +190,7 @@ export function ContactContent() {
                   {method.phone && (
                     <p
                       className={`text-2xl font-bold mb-3 ${
-                        method.primary ? "text-white" : "text-[var(--jade)]"
+                        method.primary ? "text-white" : "text-[var(--orange)]"
                       }`}
                     >
                       {method.phone}
@@ -179,7 +200,7 @@ export function ContactContent() {
                   {method.email && (
                     <p
                       className={`text-lg font-medium mb-3 ${
-                        method.primary ? "text-white" : "text-[var(--jade)]"
+                        method.primary ? "text-white" : "text-[var(--orange)]"
                       }`}
                     >
                       {method.email}
@@ -207,10 +228,19 @@ export function ContactContent() {
                   </p>
 
                   <Button
+                    onClick={() => {
+                      if (method.primary) {
+                        handleWeChatClick();
+                      } else if (method.phone) {
+                        window.location.href = `tel:${method.phone}`;
+                      } else if (method.email) {
+                        window.location.href = `mailto:${method.email}`;
+                      }
+                    }}
                     className={`w-full mt-auto ${
                       method.primary
-                        ? "bg-white text-[var(--jade)] hover:bg-white/90"
-                        : "bg-[var(--jade)] text-white hover:bg-[var(--jade-dark)]"
+                        ? "bg-white text-[var(--orange)] hover:bg-white/90"
+                        : "bg-[var(--orange)] text-white hover:bg-[var(--orange-dark)]"
                     }`}
                   >
                     {method.buttonText}
@@ -236,11 +266,11 @@ export function ContactContent() {
                     value={`item-${index}`}
                     className="border-b border-[var(--ivory-dark)]"
                   >
-                    <AccordionTrigger className="text-left text-[var(--dark)] hover:text-[var(--jade)]">
+                    <AccordionTrigger className="text-left text-[var(--dark)] hover:text-[var(--orange)]">
                       <span className="font-medium">Q{index + 1}: {faq.question}</span>
                     </AccordionTrigger>
                     <AccordionContent className="text-[var(--dark-light)] leading-relaxed">
-                      <span className="font-semibold text-[var(--jade)]">A:</span>{" "}
+                      <span className="font-semibold text-[var(--orange)]">A:</span>{" "}
                       {faq.answer}
                     </AccordionContent>
                   </AccordionItem>
@@ -258,105 +288,24 @@ export function ContactContent() {
                     我们会尽快回复你
                   </p>
 
-                  {submitted ? (
-                    <div className="bg-[var(--jade)]/10 rounded-lg p-8 text-center">
-                      <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[var(--jade)]/20 flex items-center justify-center">
-                        <Send className="w-8 h-8 text-[var(--jade)]" />
-                      </div>
-                      <h3 className="font-semibold text-[var(--dark)] mb-2">
-                        提交成功！
-                      </h3>
-                      <p className="text-[var(--dark-light)] text-sm">
-                        感谢您的留言！我们会在1-3个工作日内与您联系。如有紧急问题，建议直接添加微信咨询。
-                      </p>
-                    </div>
-                  ) : (
-                    <form onSubmit={handleSubmit} className="space-y-6">
-                      <div className="space-y-2">
-                        <Label htmlFor="name" className="text-[var(--dark)]">
-                          您的姓名 *
-                        </Label>
-                        <Input
-                          id="name"
-                          placeholder="请输入您的姓名"
-                          value={formData.name}
-                          onChange={(e) =>
-                            setFormData({ ...formData, name: e.target.value })
-                          }
-                          required
-                          className="border-[var(--ivory-dark)] focus:border-[var(--jade)] focus:ring-[var(--jade)]"
-                        />
-                      </div>
-
-                      <div className="space-y-2">
-                        <Label htmlFor="phone" className="text-[var(--dark)]">
-                          联系电话 *
-                        </Label>
-                        <Input
-                          id="phone"
-                          type="tel"
-                          placeholder="请输入您的手机号码"
-                          value={formData.phone}
-                          onChange={(e) =>
-                            setFormData({ ...formData, phone: e.target.value })
-                          }
-                          required
-                          className="border-[var(--ivory-dark)] focus:border-[var(--jade)] focus:ring-[var(--jade)]"
-                        />
-                      </div>
-
-                      <div className="space-y-2">
-                        <Label className="text-[var(--dark)]">咨询类型 *</Label>
-                        <div className="flex flex-wrap gap-4">
-                          {consultationTypes.map((type) => (
-                            <label
-                              key={type.value}
-                              className="flex items-center space-x-2 cursor-pointer"
-                            >
-                              <input
-                                type="radio"
-                                name="consultationType"
-                                value={type.value}
-                                checked={formData.type === type.value}
-                                onChange={(e) =>
-                                  setFormData({ ...formData, type: e.target.value })
-                                }
-                                className="w-4 h-4 text-[var(--jade)] border-[var(--jade)] focus:ring-[var(--jade)]"
-                              />
-                              <span className="text-sm text-[var(--dark-light)]">
-                                {type.label}
-                              </span>
-                            </label>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div className="space-y-2">
-                        <Label htmlFor="message" className="text-[var(--dark)]">
-                          咨询内容 *
-                        </Label>
-                        <Textarea
-                          id="message"
-                          placeholder="请详细描述您的问题或需求，我们会尽快回复您"
-                          value={formData.message}
-                          onChange={(e) =>
-                            setFormData({ ...formData, message: e.target.value })
-                          }
-                          required
-                          rows={5}
-                          className="border-[var(--ivory-dark)] focus:border-[var(--jade)] focus:ring-[var(--jade)] resize-none"
-                        />
-                      </div>
-
-                      <Button
-                        type="submit"
-                        className="w-full bg-[var(--jade)] hover:bg-[var(--jade-dark)] text-white py-6"
-                      >
-                        <Send className="w-5 h-5 mr-2" />
-                        提交留言
-                      </Button>
-                    </form>
-                  )}
+                  <div className="space-y-4">
+                    <p className="text-sm text-[var(--dark-light)]">
+                      请点击下方按钮填写表单，我们会尽快与您联系：
+                    </p>
+                    <a
+                      href="https://cqwv02td.jsjform.com/f/W95mWm"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center w-full bg-[var(--orange)] hover:bg-[var(--orange-dark)] text-white py-4 px-6 rounded-lg transition-colors"
+                    >
+                      <Send className="w-5 h-5 mr-2" />
+                      填写咨询表单
+                    </a>
+                    
+                    <p className="text-xs text-[var(--dark-lighter)] text-center">
+                      表单由金数据提供支持，安全可信
+                    </p>
+                  </div>
                 </CardContent>
               </Card>
             </div>
@@ -380,8 +329,8 @@ export function ContactContent() {
                 className="bg-white border-[var(--ivory-dark)] text-center h-full"
               >
                 <CardContent className="p-8">
-                  <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[var(--jade)]/10 flex items-center justify-center">
-                    <promise.icon className="w-8 h-8 text-[var(--jade)]" />
+                  <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[var(--orange)]/10 flex items-center justify-center">
+                    <promise.icon className="w-8 h-8 text-[var(--orange)]" />
                   </div>
                   <h3 className="font-serif text-xl font-bold text-[var(--dark)] mb-3">
                     {promise.title}
@@ -413,15 +362,28 @@ export function ContactContent() {
                         爱美舜肌肤管理中心
                       </h3>
                       <div className="flex items-start gap-3 text-[var(--dark-light)]">
-                        <MapPin className="w-5 h-5 text-[var(--jade)] mt-0.5 shrink-0" />
-                        <span>地址：待填写具体地址</span>
+                        <MapPin className="w-5 h-5 text-[var(--orange)] mt-0.5 shrink-0" />
+                        <span>地址：广东省惠州市惠城区水口街道中心高盛西湖智谷产业园A8栋702室</span>
                       </div>
+                    </div>
+
+                    <div className="mt-4 rounded-lg overflow-hidden border border-[var(--ivory-dark)]">
+                      <iframe
+                        src="https://map.qq.com/m/?lat=23.0833&lng=114.4167&zoom=15"
+                        width="100%"
+                        height="300"
+                        style={{ border: 0 }}
+                        allowFullScreen
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        title="爱美舜位置"
+                      />
                     </div>
 
                     <div>
                       <h4 className="font-medium text-[var(--dark)] mb-2">营业时间</h4>
                       <div className="flex items-start gap-3 text-[var(--dark-light)]">
-                        <Clock className="w-5 h-5 text-[var(--jade)] mt-0.5 shrink-0" />
+                        <Clock className="w-5 h-5 text-[var(--orange)] mt-0.5 shrink-0" />
                         <div>
                           <p>周一至周六 10:00-19:00</p>
                           <p className="text-sm text-[var(--dark-lighter)]">（周日休息，节假日请提前预约）</p>
@@ -433,27 +395,27 @@ export function ContactContent() {
                       <h4 className="font-medium text-[var(--dark)] mb-2">服务内容</h4>
                       <ul className="space-y-2 text-[var(--dark-light)]">
                         <li className="flex items-center gap-2">
-                          <span className="text-[var(--jade)]">•</span>
+                          <span className="text-[var(--orange)]">•</span>
                           <span>免费肌肤检测</span>
                         </li>
                         <li className="flex items-center gap-2">
-                          <span className="text-[var(--jade)]">•</span>
+                          <span className="text-[var(--orange)]">•</span>
                           <span>产品体验试用</span>
                         </li>
                         <li className="flex items-center gap-2">
-                          <span className="text-[var(--jade)]">•</span>
+                          <span className="text-[var(--orange)]">•</span>
                           <span>一对一护肤咨询</span>
                         </li>
                         <li className="flex items-center gap-2">
-                          <span className="text-[var(--jade)]">•</span>
+                          <span className="text-[var(--orange)]">•</span>
                           <span>代理面谈洽谈</span>
                         </li>
                       </ul>
                     </div>
 
-                    <div className="bg-[var(--jade)]/10 rounded-lg p-4">
+                    <div className="bg-[var(--orange)]/10 rounded-lg p-4">
                       <div className="flex items-start gap-3">
-                        <AlertCircle className="w-5 h-5 text-[var(--jade)] mt-0.5 shrink-0" />
+                        <AlertCircle className="w-5 h-5 text-[var(--orange)] mt-0.5 shrink-0" />
                         <div className="text-sm text-[var(--dark-light)]">
                           <p className="font-medium text-[var(--dark)] mb-1">温馨提示</p>
                           <p>建议提前预约，避免等待</p>
@@ -462,9 +424,9 @@ export function ContactContent() {
                     </div>
                   </div>
 
-                  <div className="bg-[var(--jade)]/10 rounded-xl flex items-center justify-center min-h-[300px]">
+                  <div className="bg-[var(--orange)]/10 rounded-xl flex items-center justify-center min-h-[300px]">
                     <div className="text-center text-[var(--dark-lighter)]">
-                      <MapPin className="w-16 h-16 mx-auto mb-4 text-[var(--jade)]/40" />
+                      <MapPin className="w-16 h-16 mx-auto mb-4 text-[var(--orange)]/40" />
                       <p>地图位置</p>
                       <p className="text-sm mt-2">（嵌入百度/高德地图）</p>
                     </div>
@@ -476,7 +438,7 @@ export function ContactContent() {
         </div>
       </section>
 
-      <section className="py-16 md:py-20 bg-gradient-to-t from-[var(--jade)]/10 to-transparent">
+      <section className="py-16 md:py-20 bg-gradient-to-t from-[var(--orange)]/10 to-transparent">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-serif text-2xl md:text-3xl font-bold text-[var(--dark)] mb-4">
             期待与你的交流
@@ -489,12 +451,20 @@ export function ContactContent() {
           <p className="text-sm text-[var(--dark-lighter)] mb-8">
             我们承诺：真实回复、专业建议、保护隐私
           </p>
-          <Button className="bg-[var(--jade)] hover:bg-[var(--jade-dark)] text-white px-8 py-6 text-lg">
+          <Button 
+            onClick={handleWeChatClick}
+            className="bg-[var(--orange)] hover:bg-[var(--orange-dark)] text-white px-8 py-6 text-lg"
+          >
             <MessageCircle className="w-5 h-5 mr-2" />
             添加微信，开始咨询
           </Button>
         </div>
       </section>
+
+      <WeChatModal 
+        isOpen={isWeChatModalOpen} 
+        onClose={() => setIsWeChatModalOpen(false)} 
+      />
     </>
   );
 }

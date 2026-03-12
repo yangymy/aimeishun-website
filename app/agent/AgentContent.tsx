@@ -129,8 +129,8 @@ export function AgentContent() {
                 key={index}
                 className="bg-white rounded-2xl p-8 shadow-sm border border-[#E8E2DB] hover:shadow-md transition-shadow"
               >
-                <div className="w-14 h-14 bg-[#7A9E8C]/10 rounded-xl flex items-center justify-center mb-6">
-                  <advantage.icon className="w-7 h-7 text-[#7A9E8C]" />
+                <div className="w-14 h-14 bg-[#F37021]/10 rounded-xl flex items-center justify-center mb-6">
+                  <advantage.icon className="w-7 h-7 text-[#F37021]" />
                 </div>
                 <h3 className="font-serif text-xl font-semibold text-[#4A4A48] mb-3">
                   {advantage.title}
@@ -147,8 +147,8 @@ export function AgentContent() {
                 key={index}
                 className="bg-white rounded-2xl p-8 shadow-sm border border-[#E8E2DB] hover:shadow-md transition-shadow"
               >
-                <div className="w-14 h-14 bg-[#7A9E8C]/10 rounded-xl flex items-center justify-center mb-6">
-                  <advantage.icon className="w-7 h-7 text-[#7A9E8C]" />
+                <div className="w-14 h-14 bg-[#F37021]/10 rounded-xl flex items-center justify-center mb-6">
+                  <advantage.icon className="w-7 h-7 text-[#F37021]" />
                 </div>
                 <h3 className="font-serif text-xl font-semibold text-[#4A4A48] mb-3">
                   {advantage.title}
@@ -177,9 +177,9 @@ export function AgentContent() {
             {policies.map((policy, index) => (
               <div
                 key={index}
-                className="bg-[#FAF8F6] rounded-2xl p-6 border border-[#E8E2DB] hover:border-[#7A9E8C]/50 transition-colors group"
+                className="bg-[#FAF8F6] rounded-2xl p-6 border border-[#E8E2DB] hover:border-[#F37021]/50 transition-colors group"
               >
-                <div className="w-12 h-12 bg-[#7A9E8C] rounded-xl flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
+                <div className="w-12 h-12 bg-[#F37021] rounded-xl flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
                   <policy.icon className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="font-serif text-lg font-semibold text-[#4A4A48] mb-2">
@@ -206,19 +206,19 @@ export function AgentContent() {
           </div>
 
           <div className="relative">
-            <div className="hidden lg:block absolute top-16 left-[10%] right-[10%] h-0.5 bg-[#7A9E8C]/30" />
+            <div className="hidden lg:block absolute top-16 left-[10%] right-[10%] h-0.5 bg-[#F37021]/30" />
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8">
               {steps.map((step, index) => (
                 <div key={index} className="relative flex flex-col items-center">
-                  <div className="w-14 h-14 rounded-full bg-[#7A9E8C] flex items-center justify-center mb-4 relative z-10 shadow-lg shadow-[#7A9E8C]/20">
+                  <div className="w-14 h-14 rounded-full bg-[#F37021] flex items-center justify-center mb-4 relative z-10 shadow-lg shadow-[#F37021]/20">
                     <span className="text-white font-bold text-lg">
                       {step.number}
                     </span>
                   </div>
 
                   {index < steps.length - 1 && (
-                    <div className="lg:hidden absolute top-7 left-[calc(50%+2rem)] w-[calc(100%-4rem)] h-0.5 bg-[#7A9E8C]/20" />
+                    <div className="lg:hidden absolute top-7 left-[calc(50%+2rem)] w-[calc(100%-4rem)] h-0.5 bg-[#F37021]/20" />
                   )}
 
                   <h3 className="font-serif text-lg font-semibold text-[#4A4A48] mb-2 text-center">
@@ -252,9 +252,9 @@ export function AgentContent() {
                 value={`item-${index}`}
                 className="border-b border-[#E8E2DB]"
               >
-                <AccordionTrigger className="text-left text-[#4A4A48] font-medium py-5 hover:text-[#7A9E8C] hover:no-underline">
+                <AccordionTrigger className="text-left text-[#4A4A48] font-medium py-5 hover:text-[#F37021] hover:no-underline">
                   <span className="flex items-center gap-3">
-                    <FileText className="w-5 h-5 text-[#7A9E8C] shrink-0" />
+                    <FileText className="w-5 h-5 text-[#F37021] shrink-0" />
                     {faq.question}
                   </span>
                 </AccordionTrigger>
@@ -267,7 +267,7 @@ export function AgentContent() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-[#7A9E8C]">
+      <section className="py-16 md:py-24 bg-[#F37021]">
         <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-6">
             立即申请代理
@@ -280,7 +280,7 @@ export function AgentContent() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button
               size="lg"
-              className="bg-white text-[#7A9E8C] hover:bg-white/90 px-8 py-6 text-base font-medium shadow-lg"
+              className="bg-white text-[#F37021] hover:bg-white/90 px-8 py-6 text-base font-medium shadow-lg"
             >
               填写申请表
               <ArrowRight className="w-5 h-5 ml-2" />

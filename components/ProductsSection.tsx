@@ -8,7 +8,7 @@ const products = [
     id: 1,
     name: "氨基酸温和洁面乳",
     tag: "深层清洁",
-    tagColor: "bg-[#7A9E8C]/10 text-[#5F7D6E]",
+    tagColor: "bg-[#F37021]/10 text-[#D65A0F]",
     description: "氨基酸配方，温和不刺激，深层清洁同时保护肌肤屏障，适合敏感肌日常使用。",
     icon: Droplets,
   },
@@ -60,8 +60,8 @@ function ProductCard({ product }: { product: typeof products[0] }) {
     <div className="group bg-white rounded-2xl border border-[#E8E2DB] overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
       <div className="aspect-square bg-[#F5F1ED] relative overflow-hidden">
         <div className="w-full h-full flex flex-col items-center justify-center text-[#6A6A68]">
-          <div className="w-20 h-20 bg-[#7A9E8C]/10 rounded-full flex items-center justify-center mb-3 group-hover:bg-[#7A9E8C]/20 transition-colors">
-            <Icon className="w-8 h-8 text-[#7A9E8C]" />
+          <div className="w-20 h-20 bg-[#F37021]/10 rounded-full flex items-center justify-center mb-3 group-hover:bg-[#F37021]/20 transition-colors">
+            <Icon className="w-8 h-8 text-[#F37021]" />
           </div>
           <span className="text-sm font-medium">{product.name}</span>
         </div>
@@ -70,7 +70,7 @@ function ProductCard({ product }: { product: typeof products[0] }) {
           {product.tag}
         </Badge>
 
-        <div className="absolute inset-0 bg-[#7A9E8C]/0 group-hover:bg-[#7A9E8C]/5 transition-colors duration-300" />
+        <div className="absolute inset-0 bg-[#F37021]/0 group-hover:bg-[#F37021]/5 transition-colors duration-300" />
       </div>
 
       <div className="p-6">
@@ -84,7 +84,7 @@ function ProductCard({ product }: { product: typeof products[0] }) {
 
         <Link
           href="/products"
-          className="inline-flex items-center text-sm font-medium text-[#7A9E8C] hover:text-[#5F7D6E] transition-colors group/link"
+          className="inline-flex items-center text-sm font-medium text-[#F37021] hover:text-[#D65A0F] transition-colors group/link"
         >
           了解详情
           <ArrowRight className="w-4 h-4 ml-1 group-hover/link:translate-x-1 transition-transform" />
@@ -102,7 +102,7 @@ export function ProductsSection() {
     >
       <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-          <span className="inline-block text-sm font-medium text-[#7A9E8C] uppercase tracking-wider mb-4">
+          <span className="inline-block text-sm font-medium text-[#F37021] uppercase tracking-wider mb-4">
             明星产品
           </span>
 
@@ -125,7 +125,7 @@ export function ProductsSection() {
           <Button
             asChild
             variant="outline"
-            className="border-[#7A9E8C] text-[#7A9E8C] hover:bg-[#7A9E8C]/10"
+            className="border-[#F37021] text-[#F37021] hover:bg-[#F37021]/10"
           >
             <Link href="/products">查看全部产品</Link>
           </Button>

@@ -132,8 +132,8 @@ function getCategoryLabel(category: Case["category"]) {
 function getCategoryColor(category: Case["category"]) {
   const colors: Record<string, string> = {
     pigmentation: "bg-[#D4A574]/20 text-[#B88A5A] border-[#D4A574]/30",
-    sensitive: "bg-[#7A9E8C]/20 text-[#5F7D6E] border-[#7A9E8C]/30",
-    agent: "bg-[#9EBBAE]/20 text-[#7A9E8C] border-[#9EBBAE]/30",
+    sensitive: "bg-[#F37021]/20 text-[#D65A0F] border-[#F37021]/30",
+    agent: "bg-[#FF8C42]/20 text-[#F37021] border-[#FF8C42]/30",
   };
   return colors[category];
 }
@@ -147,15 +147,15 @@ function CaseCard({ caseItem }: { caseItem: Case }) {
       <div 
         className={`h-48 w-full relative overflow-hidden ${
           isAgent 
-            ? "bg-gradient-to-br from-[#D4A574]/20 via-[#F5F1ED] to-[#7A9E8C]/20" 
-            : "bg-gradient-to-br from-[#7A9E8C]/10 via-[#F5F1ED] to-[#9EBBAE]/10"
+            ? "bg-gradient-to-br from-[#D4A574]/20 via-[#F5F1ED] to-[#F37021]/20" 
+            : "bg-gradient-to-br from-[#F37021]/10 via-[#F5F1ED] to-[#FF8C42]/10"
         }`}
       >
         <div className="absolute inset-0 flex items-center justify-center">
           {isAgent ? (
             <TrendingUp className="w-16 h-16 text-[#D4A574]/40 group-hover:scale-110 transition-transform duration-300" />
           ) : (
-            <Sparkles className="w-16 h-16 text-[#7A9E8C]/40 group-hover:scale-110 transition-transform duration-300" />
+            <Sparkles className="w-16 h-16 text-[#F37021]/40 group-hover:scale-110 transition-transform duration-300" />
           )}
         </div>
         <Badge className={`absolute top-4 left-4 border ${categoryColor}`}>
@@ -167,7 +167,7 @@ function CaseCard({ caseItem }: { caseItem: Case }) {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-10 h-10 rounded-full bg-[#F5F1ED] flex items-center justify-center">
-              <User className="w-5 h-5 text-[#7A9E8C]" />
+              <User className="w-5 h-5 text-[#F37021]" />
             </div>
             <div>
               <h3 className="font-serif text-lg font-semibold text-[#4A4A48]">
@@ -208,7 +208,7 @@ function CaseCard({ caseItem }: { caseItem: Case }) {
           <p className="text-xs text-[#8A8A88] uppercase tracking-wider mb-1">
             {isAgent ? "成长成果" : "改善效果"}
           </p>
-          <p className="text-lg font-semibold text-[#7A9E8C] font-serif">
+          <p className="text-lg font-semibold text-[#F37021] font-serif">
             {caseItem.result}
           </p>
         </div>
@@ -237,8 +237,8 @@ export function CasesContent() {
                 onClick={() => setActiveCategory(cat.key)}
                 className={
                   activeCategory === cat.key
-                    ? "bg-[#7A9E8C] hover:bg-[#5F7D6E] text-white border-0"
-                    : "border-[#7A9E8C] text-[#7A9E8C] hover:bg-[#7A9E8C]/10"
+                    ? "bg-[#F37021] hover:bg-[#D65A0F] text-white border-0"
+                    : "border-[#F37021] text-[#F37021] hover:bg-[#F37021]/10"
                 }
               >
                 {cat.label}
@@ -260,7 +260,7 @@ export function CasesContent() {
         </div>
       </section>
 
-      <section className="py-12 md:py-16 bg-[#7A9E8C]">
+      <section className="py-12 md:py-16 bg-[#F37021]">
         <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <div className="flex justify-center mb-6">
             <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center">
@@ -278,7 +278,7 @@ export function CasesContent() {
             <Button
               asChild
               size="lg"
-              className="bg-white text-[#7A9E8C] hover:bg-white/90 font-medium px-8"
+              className="bg-white text-[#F37021] hover:bg-white/90 font-medium px-8"
             >
               <Link href="/contact">免费咨询</Link>
             </Button>

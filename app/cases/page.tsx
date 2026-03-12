@@ -26,7 +26,7 @@ export default function CasesPage() {
       <section className="pt-24 pb-12 md:pt-32 md:pb-16 bg-[#F5F1ED]">
         <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
-            <span className="inline-block text-sm font-medium text-[#7A9E8C] uppercase tracking-wider mb-4">
+            <span className="inline-block text-sm font-medium text-[#F37021] uppercase tracking-wider mb-4">
               Success Stories
             </span>
             <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-[#4A4A48] mb-4">

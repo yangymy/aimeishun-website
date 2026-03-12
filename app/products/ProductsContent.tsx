@@ -140,7 +140,7 @@ export function ProductsContent() {
                 onClick={() => setActiveCategory(category)}
                 className={`rounded-full px-5 py-2 text-sm font-medium transition-all duration-200 ${
                   activeCategory === category
-                    ? "bg-[#7A9E8C] text-white shadow-md"
+                    ? "bg-[#F37021] text-white shadow-md"
                     : "bg-[#F5F1ED] text-[#6A6A68] hover:bg-[#E8E2DB]"
                 }`}
               >
@@ -159,14 +159,14 @@ export function ProductsContent() {
                 key={product.id}
                 className="group overflow-hidden border-none bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
               >
-                <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-[#7A9E8C]/20 to-[#D4A574]/20">
+                <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-[#F37021]/20 to-[#D4A574]/20">
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="font-serif text-4xl text-[#7A9E8C]/40">
+                    <span className="font-serif text-4xl text-[#F37021]/40">
                       {product.name.charAt(0)}
                     </span>
                   </div>
                   <div className="absolute right-3 top-3">
-                    <span className="rounded-full bg-white/90 px-2.5 py-1 text-xs font-medium text-[#7A9E8C] backdrop-blur-sm">
+                    <span className="rounded-full bg-white/90 px-2.5 py-1 text-xs font-medium text-[#F37021] backdrop-blur-sm">
                       {product.category}
                     </span>
                   </div>
@@ -183,11 +183,11 @@ export function ProductsContent() {
 
                 <CardContent className="space-y-3 pt-0">
                   <div className="text-sm">
-                    <span className="font-medium text-[#7A9E8C]">主要成分：</span>
+                    <span className="font-medium text-[#F37021]">主要成分：</span>
                     <span className="text-[#6A6A68]">{product.ingredients}</span>
                   </div>
                   <div className="text-sm">
-                    <span className="font-medium text-[#7A9E8C]">适用肤质：</span>
+                    <span className="font-medium text-[#F37021]">适用肤质：</span>
                     <span className="text-[#6A6A68]">{product.skinType}</span>
                   </div>
                 </CardContent>
@@ -203,7 +203,7 @@ export function ProductsContent() {
         </div>
       </section>
 
-      <section className="py-16" style={{ backgroundColor: '#7A9E8C' }}>
+      <section className="py-16" style={{ backgroundColor: '#F37021' }}>
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
           <h2 className="font-serif text-3xl font-bold text-white md:text-4xl">
             需要专业护肤建议？

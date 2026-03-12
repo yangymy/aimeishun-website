@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Noto_Sans_SC, Noto_Serif_SC } from "next/font/google";
 import "./globals.css";
+import { FloatContact } from "@/components/FloatContact";
 
 const notoSans = Noto_Sans_SC({
   variable: "--font-noto-sans",
@@ -60,6 +61,7 @@ export default function RootLayout({
         className={`${notoSans.variable} ${notoSerif.variable} antialiased`}
       >
         {children}
+        <FloatContact />
       </body>
     </html>
   );

@@ -31,7 +31,7 @@ export function CTASection() {
                 key={index}
                 className="flex items-start gap-3 p-4 bg-[#FAF8F6] rounded-xl"
               >
-                <span className="text-[#7A9E8C] text-lg">•</span>
+                <span className="text-[#F37021] text-lg">•</span>
                 <span className="text-[#6A6A68] text-sm">{point}</span>
               </div>
             ))}
@@ -47,7 +47,7 @@ export function CTASection() {
                 key={index}
                 className="flex items-center gap-2 text-[#6A6A68]"
               >
-                <Check className="w-5 h-5 text-[#7A9E8C] flex-shrink-0" />
+                <Check className="w-5 h-5 text-[#F37021] flex-shrink-0" />
                 <span className="text-sm">{benefit}</span>
               </div>
             ))}
@@ -56,7 +56,7 @@ export function CTASection() {
           <Button
             asChild
             size="lg"
-            className="bg-[#7A9E8C] hover:bg-[#5F7D6E] text-white px-8 py-6 text-base w-full sm:w-auto"
+            className="bg-[#F37021] hover:bg-[#D65A0F] text-white px-8 py-6 text-base w-full sm:w-auto"
           >
             <Link href="/contact">
               <MessageCircle className="w-5 h-5 mr-2" />

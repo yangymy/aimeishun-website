@@ -12,10 +12,10 @@ export function FounderSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="relative order-1 lg:order-1">
             <div className="relative aspect-[3/4] max-w-md mx-auto lg:max-w-none">
-              <div className="absolute -inset-4 bg-[#7A9E8C]/10 rounded-2xl -z-10" />
+              <div className="absolute -inset-4 bg-[#F37021]/10 rounded-2xl -z-10" />
 
               <div className="w-full h-full bg-[#F5F1ED] rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col items-center justify-center text-[#6A6A68] p-8">
-                <div className="w-32 h-32 bg-[#7A9E8C]/20 rounded-full flex items-center justify-center mb-4">
+                <div className="w-32 h-32 bg-[#F37021]/20 rounded-full flex items-center justify-center mb-4">
                   <span className="text-4xl">👩</span>
                 </div>
                 <span className="text-lg font-medium">创始人形象照</span>
@@ -25,7 +25,7 @@ export function FounderSection() {
 
               <div className="absolute -bottom-4 -right-4 bg-white rounded-xl shadow-lg p-4 max-w-[200px]">
                 <div className="flex items-center gap-2 mb-1">
-                  <Award className="w-4 h-4 text-[#7A9E8C]" />
+                  <Award className="w-4 h-4 text-[#F37021]" />
                   <p className="text-sm font-medium text-[#4A4A48]">国家高级美容师</p>
                 </div>
                 <p className="text-xs text-[#8A8A88]">20余年一线经验</p>
@@ -34,13 +34,13 @@ export function FounderSection() {
           </div>
 
           <div className="order-2 lg:order-2">
-            <span className="inline-block text-sm font-medium text-[#7A9E8C] uppercase tracking-wider mb-4">
+            <span className="inline-block text-sm font-medium text-[#F37021] uppercase tracking-wider mb-4">
               品牌创始人
             </span>
 
             <h2 className="font-serif text-2xl md:text-3xl lg:text-4xl font-semibold text-[#4A4A48] mb-6 leading-tight">
               认识瑾钰——
-              <span className="block mt-1 text-[#7A9E8C]">
+              <span className="block mt-1 text-[#F37021]">
                 你的问题肌肤护肤顾问
               </span>
             </h2>
@@ -77,7 +77,7 @@ export function FounderSection() {
               <Button
                 asChild
                 variant="outline"
-                className="border-[#7A9E8C] text-[#7A9E8C] hover:bg-[#7A9E8C]/10"
+                className="border-[#F37021] text-[#F37021] hover:bg-[#F37021]/10"
               >
                 <Link href="/about">了解品牌故事</Link>
               </Button>
@@ -85,7 +85,7 @@ export function FounderSection() {
               <Button
                 asChild
                 variant="ghost"
-                className="text-[#7A9E8C] hover:text-[#5F7D6E] hover:bg-[#7A9E8C]/10"
+                className="text-[#F37021] hover:text-[#D65A0F] hover:bg-[#F37021]/10"
               >
                 <Link href="/contact">联系瑾钰咨询 →</Link>
               </Button>

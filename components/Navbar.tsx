@@ -33,7 +33,7 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-[#6A6A68] hover:text-[#7A9E8C] transition-colors"
+                className="text-sm font-medium text-[#6A6A68] hover:text-[#F37021] transition-colors"
               >
                 {link.label}
               </Link>
@@ -43,7 +43,7 @@ export function Navbar() {
           <div className="hidden lg:block">
             <Button
               asChild
-              className="bg-[#7A9E8C] hover:bg-[#5F7D6E] text-white"
+              className="bg-[#F37021] hover:bg-[#D65A0F] text-white"
             >
               <Link href="/contact">预约咨询</Link>
             </Button>
@@ -69,7 +69,7 @@ export function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="block text-base font-medium text-[#4A4A48] hover:text-[#7A9E8C] transition-colors py-2"
+                  className="block text-base font-medium text-[#4A4A48] hover:text-[#F37021] transition-colors py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {link.label}
@@ -78,7 +78,7 @@ export function Navbar() {
               <div className="pt-4">
                 <Button
                   asChild
-                  className="w-full bg-[#7A9E8C] hover:bg-[#5F7D6E] text-white"
+                  className="w-full bg-[#F37021] hover:bg-[#D65A0F] text-white"
                 >
                   <Link href="/contact">预约咨询</Link>
                 </Button>

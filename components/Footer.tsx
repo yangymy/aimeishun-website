@@ -40,16 +40,16 @@ export function Footer() {
             </p>
             <div className="mt-6 space-y-3">
               <div className="flex items-center gap-3 text-sm text-white/70">
-                <Phone className="w-4 h-4 text-[#7A9E8C]" />
-                <span>400-888-8888</span>
+                <Phone className="w-4 h-4 text-[#F37021]" />
+                <a href="tel:13538941293" className="hover:text-[#F37021] transition-colors">13538941293</a>
               </div>
               <div className="flex items-center gap-3 text-sm text-white/70">
-                <Mail className="w-4 h-4 text-[#7A9E8C]" />
-                <span>contact@aimeishun.com</span>
+                <Mail className="w-4 h-4 text-[#F37021]" />
+                <a href="mailto:873974555@qq.com" className="hover:text-[#F37021] transition-colors">873974555@qq.com</a>
               </div>
               <div className="flex items-center gap-3 text-sm text-white/70">
-                <MapPin className="w-4 h-4 text-[#7A9E8C]" />
-                <span>上海市静安区xxx路xxx号</span>
+                <MapPin className="w-4 h-4 text-[#F37021]" />
+                <span>广东省惠州市惠城区水口街道中心高盛西湖智谷产业园A8栋702室</span>
               </div>
             </div>
           </div>
@@ -61,7 +61,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/70 hover:text-[#7A9E8C] transition-colors"
+                    className="text-sm text-white/70 hover:text-[#F37021] transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -77,7 +77,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/70 hover:text-[#7A9E8C] transition-colors"
+                    className="text-sm text-white/70 hover:text-[#F37021] transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -93,7 +93,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/70 hover:text-[#7A9E8C] transition-colors"
+                    className="text-sm text-white/70 hover:text-[#F37021] transition-colors"
                   >
                     {link.label}
                   </Link>

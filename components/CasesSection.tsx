@@ -32,9 +32,9 @@ const cases = [
 
 function CaseCard({ caseItem }: { caseItem: typeof cases[0] }) {
   return (
-    <div className="group bg-[#FAF8F6] rounded-2xl p-6 md:p-8 hover:shadow-lg transition-all duration-300 border-l-4 border-[#7A9E8C]">
+    <div className="group bg-[#FAF8F6] rounded-2xl p-6 md:p-8 hover:shadow-lg transition-all duration-300 border-l-4 border-[#F37021]">
       <div className="flex flex-wrap items-center gap-3 mb-4">
-        <Badge className="bg-[#7A9E8C]/10 text-[#5F7D6E] border-0 hover:bg-[#7A9E8C]/20">
+        <Badge className="bg-[#F37021]/10 text-[#D65A0F] border-0 hover:bg-[#F37021]/20">
           {caseItem.category}
         </Badge>
         <div className="flex items-center gap-1 text-sm text-[#8A8A88]">
@@ -53,12 +53,12 @@ function CaseCard({ caseItem }: { caseItem: typeof cases[0] }) {
 
       <div className="bg-white rounded-lg p-4 mb-4">
         <span className="text-xs text-[#8A8A88] uppercase tracking-wider">改善效果</span>
-        <p className="text-lg font-semibold text-[#7A9E8C]">{caseItem.result}</p>
+        <p className="text-lg font-semibold text-[#F37021]">{caseItem.result}</p>
       </div>
 
       <Link
         href="/cases"
-        className="inline-flex items-center text-sm font-medium text-[#7A9E8C] hover:text-[#5F7D6E] transition-colors group/link"
+        className="inline-flex items-center text-sm font-medium text-[#F37021] hover:text-[#D65A0F] transition-colors group/link"
       >
         查看详情
         <ArrowRight className="w-4 h-4 ml-1 group-hover/link:translate-x-1 transition-transform" />
@@ -75,7 +75,7 @@ export function CasesSection() {
     >
       <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-          <span className="inline-block text-sm font-medium text-[#7A9E8C] uppercase tracking-wider mb-4">
+          <span className="inline-block text-sm font-medium text-[#F37021] uppercase tracking-wider mb-4">
             真实案例
           </span>
 
@@ -98,7 +98,7 @@ export function CasesSection() {
           <Button
             asChild
             variant="outline"
-            className="border-[#7A9E8C] text-[#7A9E8C] hover:bg-[#7A9E8C]/10"
+            className="border-[#F37021] text-[#F37021] hover:bg-[#F37021]/10"
           >
             <Link href="/cases">查看全部案例</Link>
           </Button>
