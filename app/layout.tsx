@@ -17,8 +17,36 @@ const notoSerif = Noto_Serif_SC({
 });
 
 export const metadata: Metadata = {
-  title: "爱美舜 - Aimeishun",
-  description: "爱美舜品牌官网 - 专注于提供高品质的产品与服务",
+  title: {
+    default: "爱美舜 | 专注30+女性问题肌肤护理",
+    template: "%s | 爱美舜"
+  },
+  description: "爱美舜功效型护肤品牌，专注30+女性问题肌肤护理。国家高级美容师陈瑾钰老师一对一指导，1800+成功案例见证。针对色斑、敏感肌、痘痘、衰老等问题提供科学分阶护肤方案。",
+  keywords: ["爱美舜", "护肤品牌", "问题肌肤", "30+女性护肤", "祛斑", "敏感肌修护", "陈瑾钰"],
+  authors: [{ name: "爱美舜" }],
+  creator: "爱美舜",
+  metadataBase: new URL("https://www.aimeishun.cn"),
+  openGraph: {
+    type: "website",
+    locale: "zh_CN",
+    url: "https://www.aimeishun.cn",
+    siteName: "爱美舜",
+    title: "爱美舜 | 专注30+女性问题肌肤护理",
+    description: "爱美舜功效型护肤品牌，专注30+女性问题肌肤护理。国家高级美容师陈瑾钰老师一对一指导，1800+成功案例见证。",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  verification: {
+    other: {
+      "baidu-site-verification": "your-baidu-verification-code",
+    },
+  },
 };
 
 export default function RootLayout({
