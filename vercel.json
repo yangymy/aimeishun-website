@@ -1,0 +1,8 @@
+{
+  "name": "aimeishun-website",
+  "version": 2,
+  "buildCommand": "next build",
+  "outputDirectory": "dist",
+  "framework": "nextjs",
+  "installCommand": "npm install"
+}
