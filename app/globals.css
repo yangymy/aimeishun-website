@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+:root {
+  /* Brand Colors - Aimeishun Design System */
+  --jade: #7A9E8C;
+  --jade-dark: #5F7D6E;
+  --jade-light: #9EBBAE;
+  
+  --ivory: #F5F1ED;
+  --ivory-dark: #E8E2DB;
+  --ivory-light: #FAF8F6;
+  
+  --gold: #D4A574;
+  --gold-dark: #B88A5A;
+  --gold-light: #E4C4A0;
+  
+  --dark: #4A4A48;
+  --dark-light: #6A6A68;
+  --dark-lighter: #8A8A88;
+  
+  /* shadcn/ui Theme Variables */
+  --background: var(--ivory-light);
+  --foreground: var(--dark);
+  
+  --card: 0 0% 100%;
+  --card-foreground: 20 14.3% 4.1%;
+  
+  --popover: 0 0% 100%;
+  --popover-foreground: 20 14.3% 4.1%;
+  
+  --primary: 144 16% 55%;
+  --primary-foreground: 0 0% 100%;
+  
+  --secondary: 30 20% 95%;
+  --secondary-foreground: 20 14.3% 4.1%;
+  
+  --muted: 30 10% 90%;
+  --muted-foreground: 20 6% 40%;
+  
+  --accent: 32 45% 64%;
+  --accent-foreground: 20 14.3% 4.1%;
+  
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  
+  --border: 20 6% 85%;
+  --input: 20 6% 85%;
+  --ring: 144 16% 55%;
+  
+  --radius: 0.5rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-noto-sans);
+  --font-serif: var(--font-noto-serif);
+  --font-mono: var(--font-geist-mono);
+  
+  /* Custom brand colors */
+  --color-jade: var(--jade);
+  --color-jade-dark: var(--jade-dark);
+  --color-jade-light: var(--jade-light);
+  
+  --color-ivory: var(--ivory);
+  --color-ivory-dark: var(--ivory-dark);
+  --color-ivory-light: var(--ivory-light);
+  
+  --color-gold: var(--gold);
+  --color-gold-dark: var(--gold-dark);
+  --color-gold-light: var(--gold-light);
+  
+  --color-dark: var(--dark);
+  --color-dark-light: var(--dark-light);
+  --color-dark-lighter: var(--dark-lighter);
+  
+  /* shadcn/ui theme colors */
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius));
+  --radius-lg: calc(var(--radius) + 4px);
+  --radius-xl: calc(var(--radius) + 8px);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: var(--dark);
+    --foreground: var(--ivory-light);
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-noto-sans), "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+/* Typography utilities */
+.font-serif {
+  font-family: var(--font-noto-serif), "Noto Serif SC", "Songti SC", serif;
+}
+
+.font-sans {
+  font-family: var(--font-noto-sans), "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background-color: var(--jade-light);
+  color: var(--dark);
+}
