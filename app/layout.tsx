@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Noto_Sans_SC, Noto_Serif_SC } from "next/font/google";
 import "./globals.css";
 import { FloatContact } from "@/components/FloatContact";
+import { PageLoader } from "@/components/animations/PageLoader";
+import { BackToTop } from "@/components/animations/NavbarEffects";
 
 const notoSans = Noto_Sans_SC({
   variable: "--font-noto-sans",
@@ -60,8 +62,10 @@ export default function RootLayout({
       <body
         className={`${notoSans.variable} ${notoSerif.variable} antialiased`}
       >
+        <PageLoader brandName="爱美舜" duration={2000} />
         {children}
         <FloatContact />
+        <BackToTop />
       </body>
     </html>
   );

@@ -1,24 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Clock, User, Sparkles, TrendingUp, MessageCircle } from "lucide-react";
+import { MessageCircle, Users, Award, Clock, TrendingUp } from "lucide-react";
 import Link from "next/link";
+import { CaseCard, Case, StatCard, FilterButton } from "@/components/CaseCard";
+import { CountUp } from "@/components/animations/CountUp";
+import { ScrollReveal } from "@/components/animations/ScrollReveal";
 
 type Category = "all" | "pigmentation" | "sensitive" | "agent";
-
-interface Case {
-  id: number;
-  name: string;
-  age: number;
-  problem: string;
-  solution: string;
-  result: string;
-  duration: string;
-  category: "pigmentation" | "sensitive" | "agent";
-}
 
 const categories: { key: Category; label: string }[] = [
   { key: "all", label: "全部案例" },
@@ -120,102 +111,36 @@ const cases: Case[] = [
   },
 ];
 
-function getCategoryLabel(category: Case["category"]) {
-  const labels: Record<string, string> = {
-    pigmentation: "祛斑案例",
-    sensitive: "敏感肌案例",
-    agent: "代理成长",
-  };
-  return labels[category];
-}
-
-function getCategoryColor(category: Case["category"]) {
-  const colors: Record<string, string> = {
-    pigmentation: "bg-[#D4A574]/20 text-[#B88A5A] border-[#D4A574]/30",
-    sensitive: "bg-[#F37021]/20 text-[#D65A0F] border-[#F37021]/30",
-    agent: "bg-[#FF8C42]/20 text-[#F37021] border-[#FF8C42]/30",
-  };
-  return colors[category];
-}
-
-function CaseCard({ caseItem }: { caseItem: Case }) {
-  const categoryColor = getCategoryColor(caseItem.category);
-  const isAgent = caseItem.category === "agent";
-
-  return (
-    <Card className="bg-white border-0 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden group">
-      <div 
-        className={`h-48 w-full relative overflow-hidden ${
-          isAgent 
-            ? "bg-gradient-to-br from-[#D4A574]/20 via-[#F5F1ED] to-[#F37021]/20" 
-            : "bg-gradient-to-br from-[#F37021]/10 via-[#F5F1ED] to-[#FF8C42]/10"
-        }`}
-      >
-        <div className="absolute inset-0 flex items-center justify-center">
-          {isAgent ? (
-            <TrendingUp className="w-16 h-16 text-[#D4A574]/40 group-hover:scale-110 transition-transform duration-300" />
-          ) : (
-            <Sparkles className="w-16 h-16 text-[#F37021]/40 group-hover:scale-110 transition-transform duration-300" />
-          )}
-        </div>
-        <Badge className={`absolute top-4 left-4 border ${categoryColor}`}>
-          {getCategoryLabel(caseItem.category)}
-        </Badge>
-      </div>
-
-      <CardHeader className="pb-3">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-full bg-[#F5F1ED] flex items-center justify-center">
-              <User className="w-5 h-5 text-[#F37021]" />
-            </div>
-            <div>
-              <h3 className="font-serif text-lg font-semibold text-[#4A4A48]">
-                {caseItem.name}
-              </h3>
-              {!isAgent && (
-                <p className="text-sm text-[#8A8A88]">{caseItem.age}岁</p>
-              )}
-            </div>
-          </div>
-          <div className="flex items-center gap-1 text-sm text-[#8A8A88]">
-            <Clock className="w-4 h-4" />
-            <span>{caseItem.duration}</span>
-          </div>
-        </div>
-      </CardHeader>
-
-      <CardContent className="pt-0 space-y-4">
-        <div>
-          <p className="text-xs text-[#8A8A88] uppercase tracking-wider mb-1">
-            {isAgent ? "创业背景" : "肌肤问题"}
-          </p>
-          <p className="text-sm text-[#6A6A68] leading-relaxed line-clamp-2">
-            {caseItem.problem}
-          </p>
-        </div>
-
-        <div>
-          <p className="text-xs text-[#8A8A88] uppercase tracking-wider mb-1">
-            {isAgent ? "解决方案" : "护理方案"}
-          </p>
-          <p className="text-sm text-[#6A6A68] leading-relaxed line-clamp-2">
-            {caseItem.solution}
-          </p>
-        </div>
-
-        <div className="bg-[#F5F1ED] rounded-lg p-4">
-          <p className="text-xs text-[#8A8A88] uppercase tracking-wider mb-1">
-            {isAgent ? "成长成果" : "改善效果"}
-          </p>
-          <p className="text-lg font-semibold text-[#F37021] font-serif">
-            {caseItem.result}
-          </p>
-        </div>
-      </CardContent>
-    </Card>
-  );
-}
+const stats = [
+  {
+    value: 1800,
+    suffix: "+",
+    label: "真实蜕变案例",
+    description: "累计帮助1800+客户解决肌肤问题",
+    icon: Users,
+  },
+  {
+    value: 98,
+    suffix: "%",
+    label: "客户满意度",
+    description: "专业品质赢得客户信赖",
+    icon: Award,
+  },
+  {
+    value: 12,
+    suffix: "年",
+    label: "专业经验",
+    description: "深耕肌肤护理领域12年",
+    icon: Clock,
+  },
+  {
+    value: 500,
+    suffix: "+",
+    label: "成功代理",
+    description: "携手500+代理共同成长",
+    icon: TrendingUp,
+  },
+];
 
 export function CasesContent() {
   const [activeCategory, setActiveCategory] = useState<Category>("all");
@@ -225,72 +150,291 @@ export function CasesContent() {
       ? cases
       : cases.filter((c) => c.category === activeCategory);
 
+  const getCategoryCount = (category: Category) => {
+    if (category === "all") return cases.length;
+    return cases.filter((c) => c.category === category).length;
+  };
+
   return (
     <>
-      <section className="py-12 md:py-16">
-        <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
-            {categories.map((cat) => (
-              <Button
-                key={cat.key}
-                variant={activeCategory === cat.key ? "default" : "outline"}
-                onClick={() => setActiveCategory(cat.key)}
-                className={
-                  activeCategory === cat.key
-                    ? "bg-[#F37021] hover:bg-[#D65A0F] text-white border-0"
-                    : "border-[#F37021] text-[#F37021] hover:bg-[#F37021]/10"
-                }
+      {/* Hero Section */}
+      <section className="relative py-16 md:py-24 bg-gradient-to-b from-[#F5F1ED] to-[#FAF8F6] overflow-hidden">
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-[#F37021]/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#D4A574]/10 rounded-full blur-3xl" />
+        </div>
+
+        <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 relative z-10">
+          <ScrollReveal direction="up" type="fade">
+            <div className="text-center max-w-3xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+                className="inline-flex items-center gap-2 px-4 py-2 bg-[#F37021]/10 rounded-full mb-6"
               >
-                {cat.label}
-              </Button>
-            ))}
-          </div>
+                <span className="w-2 h-2 rounded-full bg-[#F37021] animate-pulse" />
+                <span className="text-sm font-medium text-[#F37021]">
+                  真实案例见证
+                </span>
+              </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {filteredCases.map((caseItem) => (
-              <CaseCard key={caseItem.id} caseItem={caseItem} />
-            ))}
-          </div>
+              <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-[#4A4A48] mb-6 leading-tight">
+                每一个蜕变
+                <span className="text-[#F37021]">都值得被看见</span>
+              </h1>
 
-          {filteredCases.length === 0 && (
-            <div className="text-center py-16">
-              <p className="text-[#8A8A88]">暂无相关案例</p>
+              <p className="text-lg md:text-xl text-[#6A6A68] leading-relaxed">
+                从肌肤困扰到自信绽放，从创业小白到业绩达人
+                <br className="hidden md:block" />
+                爱美舜见证并陪伴每一位客户的成长之路
+              </p>
             </div>
-          )}
+          </ScrollReveal>
         </div>
       </section>
 
-      <section className="py-12 md:py-16 bg-[#F37021]">
-        <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-          <div className="flex justify-center mb-6">
-            <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center">
-              <MessageCircle className="w-8 h-8 text-white" />
+      {/* Statistics Section */}
+      <section className="py-16 md:py-20 bg-[#FAF8F6]">
+        <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <ScrollReveal direction="up" type="fade">
+            <div className="text-center mb-12">
+              <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#4A4A48] mb-4">
+                用数据说话
+              </h2>
+              <p className="text-[#6A6A68] max-w-2xl mx-auto">
+                十二年来，我们专注于肌肤护理与代理扶持，用专业和真诚赢得信赖
+              </p>
             </div>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.1,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                whileHover={{ y: -8 }}
+                className="group relative bg-white rounded-2xl p-6 md:p-8 text-center shadow-sm hover:shadow-xl transition-all duration-500"
+              >
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#F37021] to-[#D4A574] rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-[#F37021]/10 flex items-center justify-center group-hover:bg-[#F37021]/20 transition-colors duration-300">
+                  <stat.icon className="w-6 h-6 text-[#F37021]" />
+                </div>
+
+                <div className="mb-2">
+                  <CountUp
+                    end={stat.value}
+                    suffix={stat.suffix}
+                    className="text-4xl md:text-5xl font-serif font-bold text-[#F37021]"
+                    duration={2.5}
+                    delay={index * 0.2}
+                  />
+                </div>
+
+                <h3 className="text-lg font-semibold text-[#4A4A48] mb-1">
+                  {stat.label}
+                </h3>
+                <p className="text-xs md:text-sm text-[#8A8A88]">
+                  {stat.description}
+                </p>
+
+                <div className="absolute top-4 right-4 w-2 h-2 rounded-full bg-[#F37021]/20 group-hover:bg-[#F37021]/40 transition-colors duration-300" />
+              </motion.div>
+            ))}
           </div>
-          <h2 className="font-serif text-2xl md:text-3xl font-semibold text-white mb-4">
-            开启您的蜕变之旅
-          </h2>
-          <p className="text-white/90 mb-8 max-w-xl mx-auto">
-            无论您是有肌肤困扰想要改善，还是想加入爱美舜成为代理，
-            都可以联系我们获取专属方案
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              asChild
-              size="lg"
-              className="bg-white text-[#F37021] hover:bg-white/90 font-medium px-8"
-            >
-              <Link href="/contact">免费咨询</Link>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="border-white text-white hover:bg-white/10 font-medium px-8"
-            >
-              <Link href="/agent">了解代理</Link>
-            </Button>
+        </div>
+      </section>
+
+      {/* Cases Section */}
+      <section className="py-16 md:py-20 bg-[#F5F1ED]">
+        <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <ScrollReveal direction="up" type="fade">
+            <div className="text-center mb-12">
+              <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#4A4A48] mb-4">
+                客户真实案例
+              </h2>
+              <p className="text-[#6A6A68] max-w-2xl mx-auto">
+                滑动查看改善前后对比，真实记录每一位客户的蜕变历程
+              </p>
+            </div>
+          </ScrollReveal>
+
+          {/* Category Filter */}
+          <ScrollReveal direction="up" type="fade" delay={0.1}>
+            <div className="flex flex-wrap justify-center gap-3 mb-12">
+              {categories.map((cat) => (
+                <FilterButton
+                  key={cat.key}
+                  active={activeCategory === cat.key}
+                  onClick={() => setActiveCategory(cat.key)}
+                  count={getCategoryCount(cat.key)}
+                >
+                  {cat.label}
+                </FilterButton>
+              ))}
+            </div>
+          </ScrollReveal>
+
+          {/* Cases Grid with AnimatePresence */}
+          <motion.div
+            layout
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+          >
+            <AnimatePresence mode="popLayout">
+              {filteredCases.map((caseItem, index) => (
+                <CaseCard
+                  key={caseItem.id}
+                  caseItem={caseItem}
+                  index={index}
+                />
+              ))}
+            </AnimatePresence>
+          </motion.div>
+
+          {/* Empty State */}
+          <AnimatePresence>
+            {filteredCases.length === 0 && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                className="text-center py-16"
+              >
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[#F37021]/10 flex items-center justify-center">
+                  <Users className="w-8 h-8 text-[#F37021]/50" />
+                </div>
+                <p className="text-[#8A8A88]">暂无相关案例</p>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-16 md:py-20 bg-[#FAF8F6]">
+        <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <ScrollReveal direction="up" type="fade">
+            <div className="text-center mb-12">
+              <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#4A4A48] mb-4">
+                她们这样说
+              </h2>
+              <p className="text-[#6A6A68] max-w-2xl mx-auto">
+                来自客户的真实反馈，是我们前进的最大动力
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                quote: "困扰我8年的黄褐斑终于淡化了，现在的我可以素颜出门，自信满满！",
+                author: "王女士",
+                role: "祛斑客户",
+              },
+              {
+                quote: "从敏感肌到健康肌，爱美舜真的改变了我的生活质量，再也不用为过敏烦恼。",
+                author: "赵女士",
+                role: "敏感肌客户",
+              },
+              {
+                quote: "加入爱美舜后，不仅实现了经济独立，还收获了事业成就感，感恩遇见！",
+                author: "周女士",
+                role: "品牌代理",
+              },
+            ].map((testimonial, index) => (
+              <motion.div
+                key={testimonial.author}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.15,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                whileHover={{ y: -6 }}
+                className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300"
+              >
+                <div className="text-4xl text-[#F37021]/30 font-serif mb-4">"</div>
+                <p className="text-[#6A6A68] leading-relaxed mb-6">
+                  {testimonial.quote}
+                </p>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#F37021]/20 to-[#D4A574]/20 flex items-center justify-center">
+                    <span className="text-[#F37021] font-medium text-sm">
+                      {testimonial.author[0]}
+                    </span>
+                  </div>
+                  <div>
+                    <p className="font-medium text-[#4A4A48]">
+                      {testimonial.author}
+                    </p>
+                    <p className="text-sm text-[#8A8A88]">{testimonial.role}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 md:py-20 bg-[#F37021] relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMiIvPjwvZz48L2c+PC9zdmc+')] opacity-50" />
+          <div className="absolute -top-24 -right-24 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
+          <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
+        </div>
+
+        <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="flex justify-center mb-6">
+              <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm">
+                <MessageCircle className="w-8 h-8 text-white" />
+              </div>
+            </div>
+
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-4">
+              开启您的蜕变之旅
+            </h2>
+
+            <p className="text-white/90 mb-8 max-w-xl mx-auto text-lg">
+              无论您是有肌肤困扰想要改善，还是想加入爱美舜成为代理，
+              都可以联系我们获取专属方案
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                asChild
+                size="lg"
+                className="bg-white text-[#F37021] hover:bg-white/90 font-medium px-8 h-12 rounded-full shadow-lg"
+              >
+                <Link href="/contact">免费咨询</Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="border-white text-white hover:bg-white/10 font-medium px-8 h-12 rounded-full"
+              >
+                <Link href="/agent">了解代理</Link>
+              </Button>
+            </div>
+          </motion.div>
         </div>
       </section>
     </>
