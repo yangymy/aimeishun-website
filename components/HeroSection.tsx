@@ -22,7 +22,7 @@ export function HeroSection() {
         animate={{ y: [0, -15, 0] }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
       >
-        <div className="relative aspect-[16/9] w-full">
+        <div className="relative aspect-[4/3] sm:aspect-[16/9] w-full">
           <Image
             src="/images/hero/main-visual.jpg"
             alt="爱美舜主视觉"
@@ -35,7 +35,7 @@ export function HeroSection() {
       </motion.div>
 
       {/* 内容区域 */}
-      <div className="container mx-auto max-w-7xl px-6 lg:px-8 relative z-10 pt-[55%] md:pt-[50%] lg:pt-[48%]">
+      <div className="container mx-auto max-w-7xl px-4 md:px-6 lg:px-8 relative z-10 pt-[55%] md:pt-[50%] lg:pt-[48%]">
         <div className="text-center max-w-4xl mx-auto">
           {/* 品牌标识 */}
           <motion.div
@@ -51,7 +51,7 @@ export function HeroSection() {
 
           {/* 主标题 */}
           <motion.h1
-            className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-[#1A1A1A] mb-6 leading-[1.15] tracking-wide"
+            className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-[#1A1A1A] mb-6 leading-[1.15] tracking-wide"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5 }}

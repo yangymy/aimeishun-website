@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Noto_Sans_SC, Noto_Serif_SC } from "next/font/google";
 import "./globals.css";
 import { FloatContact } from "@/components/FloatContact";
@@ -50,6 +50,14 @@ export const metadata: Metadata = {
       "baidu-site-verification": "your-baidu-verification-code",
     },
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  themeColor: "#C9A961",
 };
 
 export default function RootLayout({

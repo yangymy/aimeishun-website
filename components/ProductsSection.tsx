@@ -109,7 +109,7 @@ export function ProductsSection() {
       id="products"
       className="py-24 md:py-32 bg-white"
     >
-      <div className="container mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="container mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
           <span className="inline-block text-sm font-medium text-[#F37021] uppercase tracking-[0.3em] mb-4">
             Products
@@ -124,7 +124,7 @@ export function ProductsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
           {products.map((product, index) => (
             <ProductCard key={product.id} product={product} index={index} />
           ))}

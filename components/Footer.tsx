@@ -26,7 +26,7 @@ export function Footer() {
   return (
     <footer className="bg-[#FAFAFA] border-t border-[#E8E2DB]/30"
     >
-      <div className="container mx-auto max-w-7xl px-6 lg:px-8"
+      <div className="container mx-auto max-w-7xl px-4 md:px-6 lg:px-8"
       >
         <div className="py-16 md:py-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12"
         >

@@ -39,7 +39,7 @@ export function FounderSection() {
       <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-[#C9A961]/5 rounded-full blur-[150px]" />
       <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-[#D4B896]/5 rounded-full blur-[120px]" />
 
-      <div className="container mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto max-w-7xl px-4 md:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* 左侧图片区域 */}
           <motion.div
@@ -172,7 +172,7 @@ export function FounderSection() {
 
             {/* 资质展示卡片 */}
             <motion.div
-              className="grid grid-cols-3 gap-4 mb-10"
+              className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.7 }}

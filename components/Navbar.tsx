@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
   { href: "/", label: "首页" },
@@ -27,6 +28,18 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // 禁止 body 滚动（菜单打开时）
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -35,7 +48,7 @@ export function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <nav className="container mx-auto max-w-7xl px-6 lg:px-8">
+      <nav className="container mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center">
@@ -82,31 +95,61 @@ export function Navbar() {
           </button>
         </div>
 
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="lg:hidden absolute left-0 right-0 top-full bg-white/95 backdrop-blur-md border-t border-[#E8E2DB]/50 shadow-lg">
-            <div className="px-6 py-8 space-y-2">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="block text-base font-medium text-[#666666] hover:text-[#C9A961] transition-colors py-3 border-b border-[#E8E2DB]/30"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              ))}
-              <div className="pt-6">
-                <Button
-                  asChild
-                  className="w-full bg-[#C9A961] hover:bg-[#B8986B] text-white rounded-full"
-                >
-                  <Link href="/contact">预约咨询</Link>
-                </Button>
-              </div>
-            </div>
-          </div>
-        )}
+        {/* Mobile Menu - 右侧滑入侧边栏 */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div className="fixed inset-0 z-50 lg:hidden">
+              {/* 遮罩背景 */}
+              <motion.div
+                className="absolute inset-0 bg-black/50"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setIsMenuOpen(false)}
+              />
+              {/* 侧边栏 */}
+              <motion.div
+                className="absolute right-0 top-0 h-full w-[280px] bg-white shadow-xl"
+                initial={{ x: "100%" }}
+                animate={{ x: 0 }}
+                exit={{ x: "100%" }}
+                transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              >
+                {/* 关闭按钮 */}
+                <div className="flex justify-end p-4">
+                  <button
+                    onClick={() => setIsMenuOpen(false)}
+                    className="p-2 text-[#666666] hover:text-[#C9A961] transition-colors"
+                    aria-label="关闭菜单"
+                  >
+                    <X className="w-6 h-6" />
+                  </button>
+                </div>
+                {/* 菜单项 */}
+                <div className="px-6 py-4 space-y-1">
+                  {navLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className="block text-base font-medium text-[#666666] hover:text-[#C9A961] transition-colors py-4 border-b border-[#E8E2DB]/30"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                  <div className="pt-6">
+                    <Button
+                      asChild
+                      className="w-full bg-[#C9A961] hover:bg-[#B8986B] text-white rounded-full"
+                    >
+                      <Link href="/contact">预约咨询</Link>
+                    </Button>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
     </header>
   );

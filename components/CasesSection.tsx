@@ -172,7 +172,7 @@ function CaseCard({ caseItem, index }: { caseItem: typeof cases[0]; index: numbe
 export function CasesSection() {
   return (
     <section id="cases" className="py-24 md:py-32 bg-white">
-      <div className="container mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="container mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
         <motion.div
           className="text-center max-w-3xl mx-auto mb-16 md:mb-20"
           initial={{ opacity: 0, y: 20 }}

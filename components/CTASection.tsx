@@ -23,7 +23,7 @@ export function CTASection() {
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#C9A961]/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#D4B896]/5 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/2" />
 
-      <div className="container mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto max-w-7xl px-4 md:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto">
           {/* 标题区域 */}
           <div className="text-center mb-12">
