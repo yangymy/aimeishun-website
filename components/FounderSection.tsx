@@ -53,7 +53,7 @@ export function FounderSection() {
               <div className="w-full h-full rounded-2xl overflow-hidden shadow-2xl transition-shadow duration-500 hover:shadow-[0_25px_60px_rgba(201,169,97,0.2)]">
                 <Image
                   src="/images/founder/founder-main.jpg"
-                  alt="杨玉林 - 爱美舜品牌创始人"
+                  alt="陈瑾钰 - 爱美舜品牌创始人"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -116,7 +116,7 @@ export function FounderSection() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              杨玉林
+              陈瑾钰
             </motion.h2>
 
             <motion.p
@@ -135,7 +135,7 @@ export function FounderSection() {
               transition={{ duration: 0.6, delay: 0.5 }}
             >
               <p>
-                我是杨玉林，爱美舜品牌创始人，深耕问题肌肤领域
+                我是陈瑾钰，爱美舜品牌创始人，深耕问题肌肤领域
                 <strong className="text-[#1A1A1A]">37年</strong>
                 的国家高级美容师。
               </p>
@@ -166,7 +166,7 @@ export function FounderSection() {
                 "我的护肤理念很简单：好皮肤是养出来的，不是治出来的。30+的女人，护肤要做减法，选对成分比用贵的更重要。"
               </p>
               <footer className="mt-3 text-sm text-[#C9A961] font-medium">
-                — 杨玉林
+                — 陈瑾钰
               </footer>
             </motion.blockquote>
 

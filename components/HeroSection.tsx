@@ -16,24 +16,26 @@ export function HeroSection() {
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#C9A961]/10 rounded-full blur-[120px]" />
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-[#D4B896]/10 rounded-full blur-[100px]" />
 
-      {/* 悬浮产品 */}
+      {/* 主视觉大图 */}
       <motion.div
-        className="absolute top-[15%] left-1/2 -translate-x-1/2 z-20"
-        animate={{ y: [0, -20, 0] }}
+        className="absolute top-[8%] left-1/2 -translate-x-1/2 z-20 w-[90%] max-w-4xl"
+        animate={{ y: [0, -15, 0] }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
       >
-        <Image
-          src="/images/products/01_cleansing_essence_luxury.png"
-          alt="爱美舜明星产品"
-          width={350}
-          height={350}
-          className="drop-shadow-2xl"
-          priority
-        />
+        <div className="relative aspect-[16/9] w-full">
+          <Image
+            src="/images/hero/main-visual.jpg"
+            alt="爱美舜主视觉"
+            fill
+            className="object-contain drop-shadow-2xl"
+            priority
+            sizes="(max-width: 1200px) 90vw, 1000px"
+          />
+        </div>
       </motion.div>
 
       {/* 内容区域 */}
-      <div className="container mx-auto max-w-7xl px-6 lg:px-8 relative z-10 pt-[35%]">
+      <div className="container mx-auto max-w-7xl px-6 lg:px-8 relative z-10 pt-[55%] md:pt-[50%] lg:pt-[48%]">
         <div className="text-center max-w-4xl mx-auto">
           {/* 品牌标识 */}
           <motion.div
