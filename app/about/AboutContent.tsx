@@ -446,29 +446,23 @@ export function AboutContent() {
                 <div className="relative aspect-[3/4] max-w-md mx-auto">
                   <div className="absolute -inset-4 bg-gradient-to-br from-[#F37021]/20 to-[#D4A574]/20 rounded-3xl -z-10" />
 
-                  <div className="w-full h-full bg-gradient-to-br from-[#F5F1ED] to-[#E8E2DB] rounded-2xl overflow-hidden shadow-2xl flex flex-col items-center justify-center text-[#6A6A68] p-8">
-                    <motion.div
-                      className="w-40 h-40 bg-gradient-to-br from-[#F37021]/30 to-[#D4A574]/30 rounded-full flex items-center justify-center mb-6"
-                      animate={{
-                        boxShadow: [
-                          "0 0 0 0 rgba(243, 112, 33, 0.4)",
-                          "0 0 0 20px rgba(243, 112, 33, 0)",
-                        ],
-                      }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: "easeOut",
-                      }}
-                    >
-                      <span className="text-6xl">👩‍⚕️</span>
-                    </motion.div>
-                    <span className="text-xl font-serif font-bold text-[#4A4A48]">
-                      陈瑾钰
-                    </span>
-                    <span className="text-sm mt-2 text-[#8A8A88]">
-                      创始人 / 国家高级美容师
-                    </span>
+                  <div className="w-full h-full rounded-2xl overflow-hidden shadow-2xl">
+                    <picture>
+                      <source
+                        media="(max-width: 640px)"
+                        srcSet="/images/founder/founder-small.jpg"
+                      />
+                      <source
+                        media="(max-width: 1024px)"
+                        srcSet="/images/founder/founder-medium.jpg"
+                      />
+                      <img
+                        src="/images/founder/founder-large.jpg"
+                        alt="陈瑾钰 - 爱美舜品牌创始人"
+                        className="w-full h-full object-cover object-center"
+                        loading="lazy"
+                      />
+                    </picture>
                   </div>
 
                   <motion.div
