@@ -201,18 +201,18 @@ function ShimmerLoader() {
  */
 export function getProductImageFilename(productId: number, productName: string): string {
   const filenameMap: Record<number, string> = {
-    1: "01_cleansing_essence.jpg",
-    2: "02_isolation_base.jpg",
-    3: "03_herbal_essence.jpg",
-    4: "04_jade_essence.jpg",
-    5: "05_herbal_clarifying.jpg",
-    6: "06_purifying_essence.jpg",
-    7: "07_care_essence.jpg",
-    8: "08_youth_essence.jpg",
-    9: "09_protective_essence.jpg",
-    10: "10_moisturizing_cream.jpg",
-    11: "11_freeze_dried_powder.jpg",
-    12: "12_peptide_mask.jpg",
+    1: "product-1-洁面精华液.jpg",
+    2: "product-2-靓肤隔离乳.jpg",
+    3: "product-3-草本美肌液.jpg",
+    4: "product-4-玉肌液.jpg",
+    5: "product-5-草本清颜液.jpg",
+    6: "product-6-净肤精华液.jpg",
+    7: "product-7-养护精华液.jpg",
+    8: "product-8-青春童颜精华液.jpg",
+    9: "product-9-美肌倍护精华液.jpg",
+    10: "product-10-靓肤透润霜.jpg",
+    11: "product-11-皮肤肌底冻干粉.jpg",
+    12: "product-12-多肽倍护面膜.jpg",
   };
 
   return filenameMap[productId] || `${String(productId).padStart(2, "0")}_${productName.toLowerCase().replace(/\s+/g, "_")}.jpg`;

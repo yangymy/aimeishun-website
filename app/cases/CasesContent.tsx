@@ -28,6 +28,8 @@ const cases: Case[] = [
     result: "色斑淡化70%，肤色明显提亮",
     duration: "4个月",
     category: "pigmentation",
+    beforeImage: "/images/cases/case-13-王女士.jpg",
+    afterImage: "/images/cases/case-13-王女士.jpg",
   },
   {
     id: 2,
@@ -38,6 +40,8 @@ const cases: Case[] = [
     result: "晒斑基本消失，肌肤恢复细腻光泽",
     duration: "3个月",
     category: "pigmentation",
+    beforeImage: "/images/cases/case-12-李女士.jpg",
+    afterImage: "/images/cases/case-12-李女士.jpg",
   },
   {
     id: 3,
@@ -48,6 +52,8 @@ const cases: Case[] = [
     result: "雀斑淡化60%，整体肤色均匀透亮",
     duration: "5个月",
     category: "pigmentation",
+    beforeImage: "/images/cases/case-7-张女士.jpg",
+    afterImage: "/images/cases/case-7-张女士.jpg",
   },
   {
     id: 4,
@@ -58,6 +64,8 @@ const cases: Case[] = [
     result: "老年斑改善明显，肌肤紧致度提升",
     duration: "4个月",
     category: "pigmentation",
+    beforeImage: "/images/cases/case-15-陈女士.jpg",
+    afterImage: "/images/cases/case-15-陈女士.jpg",
   },
   {
     id: 5,
@@ -68,6 +76,8 @@ const cases: Case[] = [
     result: "红血丝明显改善，肌肤耐受力大幅提升",
     duration: "3个月",
     category: "sensitive",
+    beforeImage: "/images/cases/case-14-赵女士.jpg",
+    afterImage: "/images/cases/case-14-赵女士.jpg",
   },
   {
     id: 6,
@@ -78,6 +88,8 @@ const cases: Case[] = [
     result: "肌肤屏障恢复健康，不再敏感泛红",
     duration: "2个月",
     category: "sensitive",
+    beforeImage: "/images/cases/case-5-刘女士.jpg",
+    afterImage: "/images/cases/case-5-刘女士.jpg",
   },
   {
     id: 7,
@@ -88,6 +100,8 @@ const cases: Case[] = [
     result: "过敏症状稳定改善，换季不再困扰",
     duration: "6个月",
     category: "sensitive",
+    beforeImage: "/images/cases/case-6-孙女士.jpg",
+    afterImage: "/images/cases/case-6-孙女士.jpg",
   },
   {
     id: 8,

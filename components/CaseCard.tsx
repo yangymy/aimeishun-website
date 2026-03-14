@@ -14,6 +14,8 @@ export interface Case {
   result: string;
   duration: string;
   category: "pigmentation" | "sensitive" | "agent";
+  beforeImage?: string;
+  afterImage?: string;
 }
 
 interface CaseCardProps {
@@ -69,39 +71,55 @@ export function CaseCard({ caseItem, index = 0 }: CaseCardProps) {
           }`}
         />
 
-        {/* Before Image Placeholder */}
+        {/* Before Image */}
         <motion.div
           className="absolute inset-0 flex items-center justify-center"
           animate={{ opacity: showAfter ? 0 : 1 }}
           transition={{ duration: 0.4 }}
         >
-          <div className="text-center">
-            <div className="w-20 h-20 mx-auto mb-3 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center shadow-lg">
-              {isAgent ? (
-                <TrendingUp className="w-10 h-10 text-[#D4A574]/60" />
-              ) : (
-                <Sparkles className="w-10 h-10 text-[#F37021]/60" />
-              )}
+          {caseItem.beforeImage ? (
+            <img
+              src={caseItem.beforeImage}
+              alt={`${caseItem.name} 改善前`}
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <div className="text-center">
+              <div className="w-20 h-20 mx-auto mb-3 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center shadow-lg">
+                {isAgent ? (
+                  <TrendingUp className="w-10 h-10 text-[#D4A574]/60" />
+                ) : (
+                  <Sparkles className="w-10 h-10 text-[#F37021]/60" />
+                )}
+              </div>
+              <p className="text-sm text-[#8A8A88] font-medium">Before</p>
+              <p className="text-xs text-[#8A8A88]/70 mt-1">改善前</p>
             </div>
-            <p className="text-sm text-[#8A8A88] font-medium">Before</p>
-            <p className="text-xs text-[#8A8A88]/70 mt-1">改善前</p>
-          </div>
+          )}
         </motion.div>
 
-        {/* After Image Placeholder */}
+        {/* After Image */}
         <motion.div
           className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#F37021]/5 to-[#D4A574]/10"
           initial={{ opacity: 0 }}
           animate={{ opacity: showAfter ? 1 : 0 }}
           transition={{ duration: 0.4 }}
         >
-          <div className="text-center">
-            <div className="w-20 h-20 mx-auto mb-3 rounded-full bg-[#F37021]/20 backdrop-blur-sm flex items-center justify-center shadow-lg">
-              <Sparkles className="w-10 h-10 text-[#F37021]" />
+          {caseItem.afterImage ? (
+            <img
+              src={caseItem.afterImage}
+              alt={`${caseItem.name} 改善后`}
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <div className="text-center">
+              <div className="w-20 h-20 mx-auto mb-3 rounded-full bg-[#F37021]/20 backdrop-blur-sm flex items-center justify-center shadow-lg">
+                <Sparkles className="w-10 h-10 text-[#F37021]" />
+              </div>
+              <p className="text-sm text-[#F37021] font-medium">After</p>
+              <p className="text-xs text-[#F37021]/70 mt-1">改善后</p>
             </div>
-            <p className="text-sm text-[#F37021] font-medium">After</p>
-            <p className="text-xs text-[#F37021]/70 mt-1">改善后</p>
-          </div>
+          )}
         </motion.div>
 
         {/* Category Badge */}
