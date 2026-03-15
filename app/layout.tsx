@@ -1,9 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import { Noto_Sans_SC, Noto_Serif_SC } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { FloatContact } from "@/components/FloatContact";
 import { PageLoader } from "@/components/animations/PageLoader";
 import { BackToTop } from "@/components/animations/NavbarEffects";
+import { StickyBanner } from "@/components/StickyBanner";
 
 const notoSans = Noto_Sans_SC({
   variable: "--font-noto-sans",
@@ -67,9 +69,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN">
+      <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-XXXXXXXXXX');
+          `}
+        </Script>
+      </head>
       <body
         className={`${notoSans.variable} ${notoSerif.variable} antialiased`}
       >
+        <StickyBanner />
         <PageLoader brandName="爱美舜" duration={2000} />
         {children}
         <FloatContact />

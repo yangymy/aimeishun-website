@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, CheckCircle, Award, Users } from "lucide-react";
 import { motion } from "framer-motion";
 
 export function HeroSection() {
@@ -61,6 +61,27 @@ export function HeroSection() {
               帮30+姐妹养出好皮肤
             </span>
           </motion.h1>
+
+          {/* 信任徽章 */}
+          <motion.div
+            className="flex flex-wrap justify-center gap-3 mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.65 }}
+          >
+            <div className="flex items-center gap-2 bg-white/90 rounded-full shadow-sm px-4 py-2">
+              <CheckCircle className="w-4 h-4" style={{ color: "#C9A961" }} />
+              <span className="text-sm text-[#1A1A1A]">98%客户满意度</span>
+            </div>
+            <div className="flex items-center gap-2 bg-white/90 rounded-full shadow-sm px-4 py-2">
+              <Award className="w-4 h-4" style={{ color: "#C9A961" }} />
+              <span className="text-sm text-[#1A1A1A]">国妆特证产品</span>
+            </div>
+            <div className="flex items-center gap-2 bg-white/90 rounded-full shadow-sm px-4 py-2">
+              <Users className="w-4 h-4" style={{ color: "#C9A961" }} />
+              <span className="text-sm text-[#1A1A1A]">1800+成功案例</span>
+            </div>
+          </motion.div>
 
           {/* 副标题 */}
           <motion.p
