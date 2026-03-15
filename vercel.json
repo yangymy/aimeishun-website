@@ -2,9 +2,11 @@
   "version": 2,
   "routes": [
     {
-      "src": "/baidu_verify_codeva-nE5Bx1qX8q.html",
-      "dest": "/baidu_verify_codeva-nE5Bx1qX8q",
-      "status": 200
+      "src": "/baidu_verify_codeva-MQDY6ymeqf.html",
+      "dest": "/baidu_verify_codeva-MQDY6ymeqf.html",
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8"
+      }
     },
     {
       "src": "/sitemap.xml",
