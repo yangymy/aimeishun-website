@@ -83,6 +83,18 @@ export default function RootLayout({
             gtag('config', 'G-NECM27EG9P');
           `}
         </Script>
+        {/* 百度统计 */}
+        <Script id="baidu-tongji" strategy="afterInteractive">
+          {`
+            var _hmt = _hmt || [];
+            (function() {
+              var hm = document.createElement("script");
+              hm.src = "https://hm.baidu.com/hm.js?c6588fd1dbd659f956ff9a3c0a43020c";
+              var s = document.getElementsByTagName("script")[0]; 
+              s.parentNode.insertBefore(hm, s);
+            })();
+          `}
+        </Script>
       </head>
       <body
         className={`${notoSans.variable} ${notoSerif.variable} antialiased`}
