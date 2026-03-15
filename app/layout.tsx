@@ -6,6 +6,7 @@ import { FloatContact } from "@/components/FloatContact";
 import { PageLoader } from "@/components/animations/PageLoader";
 import { BackToTop } from "@/components/animations/NavbarEffects";
 import { StickyBanner } from "@/components/StickyBanner";
+import ErrorBoundary from "@/components/ErrorBoundary";
 
 const notoSans = Noto_Sans_SC({
   variable: "--font-noto-sans",
@@ -49,7 +50,7 @@ export const metadata: Metadata = {
   },
   verification: {
     other: {
-      "baidu-site-verification": "your-baidu-verification-code",
+      "baidu-site-verification": "codeva-nE5Bx1qX8q",
     },
   },
 };
@@ -71,7 +72,7 @@ export default function RootLayout({
     <html lang="zh-CN">
       <head>
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+          src="https://www.googletagmanager.com/gtag/js?id=G-NECM27EG9P"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -79,18 +80,20 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-XXXXXXXXXX');
+            gtag('config', 'G-NECM27EG9P');
           `}
         </Script>
       </head>
       <body
         className={`${notoSans.variable} ${notoSerif.variable} antialiased`}
       >
-        <StickyBanner />
-        <PageLoader brandName="爱美舜" duration={2000} />
-        {children}
-        <FloatContact />
-        <BackToTop />
+        <ErrorBoundary>
+          <StickyBanner />
+          <PageLoader brandName="爱美舜" duration={2000} />
+          {children}
+          <FloatContact />
+          <BackToTop />
+        </ErrorBoundary>
       </body>
     </html>
   );
