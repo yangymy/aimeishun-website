@@ -3,10 +3,8 @@
   "routes": [
     {
       "src": "/baidu_verify_codeva-nE5Bx1qX8q.html",
-      "dest": "/baidu_verify_codeva-nE5Bx1qX8q.html",
-      "headers": {
-        "Content-Type": "text/html; charset=utf-8"
-      }
+      "dest": "/baidu_verify_codeva-nE5Bx1qX8q",
+      "status": 200
     },
     {
       "src": "/sitemap.xml",
