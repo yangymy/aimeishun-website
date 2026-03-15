@@ -1,5 +1,12 @@
 {
   "version": 2,
+  "routes": [
+    {
+      "src": "/baidu_verify_codeva-MQDY6ymeqf.html",
+      "dest": "/baidu_verify_codeva-MQDY6ymeqf",
+      "status": 200
+    }
+  ],
   "github": {
     "enabled": true
   }
